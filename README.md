@@ -39,7 +39,7 @@ Within these three core states:
 - In RJ, the largest city is Rio de Janeiro, with Niterói and Nova Iguaçu ranking second and third.
 - In MG, Belo Horizonte is the leading city, but shows not much advantage over Contagem and Juiz de Fora.
 
-**Insights and recommendations**:
+**Insights & recommendations**:
 - The top‑3 southeast states contribute 66.5% of all customers. Heavy reliance on São Paulo creates concentration risk and unstability for the platform.
 - State capital cities attract most local consumers, especially in Rio de Janeiro where over half of state‑level customers come from the capital city.
 - Northern and northeastern states only occupy a small portion of users, showing untapped market potential.
@@ -47,10 +47,47 @@ Within these three core states:
 Keep retaining customers in developed areas to ensure profits. Focus marketing and logistics investment on Southeast Brazil for short‑term performance.
 In the long run, expand development in northern regions to acquire more customers and most importantly, to upgrade business stability.
 
-      - RFM customer segmentation
-        - Recency
-        - Frequency
-        - Monetary  
+
+    b) RFM customer segmentation
+
+![RFM Dashboard](Paste_your_rfm_image_here)
+
+RFM (Recency, Frequency, Monetary) scores are calculated for each customer.
+A 4-point scoring threshold is used to classify customers into 7 segments:
+
+| Segment | Recency Score | Frequency Score | Monetary Score |
+|---------|--------------|-----------------|----------------|
+| Important Client | ≥ 3 | ≥ 3 | ≥ 3 |
+| Retaining Client | ≥ 3 | ≤ 2 | ≥ 3 |
+| Losing Client | ≤ 2 | ≥ 3 | ≥ 3 |
+| Potential Client | ≥ 3 | ≥ 3 | ≤ 2 |
+| New Client | ≥ 3 | ≤ 2 | ≤ 2 |
+| Ordinary Client | ≤ 2 | ≥ 3 | ≤ 2 |
+| Lost Client | All other cases | — | — |
+
+*Segment Distribution*
+
+| Segment | Customer Count | Proportion |
+|---------|---------------|------------|
+| Lost Client | 86,313 | 89.8% |
+| New Client | 9,479 | 9.9% |
+| Ordinary Client | 205 | 0.2% |
+| Retaining Client | 51 | 0.1% |
+| Potential Client | 39 | 0.0% |
+| Important Client | 3 | 0.0% |
+| Losing Client | 5 | 0.0% |
+
+**Insights**:
+
+- **Extremely high porportion of one_off customers**: Over 89.8% of customers fall into the "Lost Client" segment, meaning they have not purchased for a long time and have low purchase frequency or spending. This confirms that Olist is essentially a one-time-purchase marketplace with very weak customer loyalty.
+- **Almost no high-value repeat customers**: Only 3 customers qualify as "Important Clients" (high recency, high frequency, high monetary value). Combined with "Retaining" and "Losing" clients, the total repeat-purchasing customer base is negligible — well under 0.5% of all users. Oblist platform performs badly on acquiring consumers of hight quality.
+- **New customer acquisition dominates**: New Clients (recent but low frequency and low spending) account for 9.9% of the base, which is the largest active segment. This indicates the platform heavily relies on continuous new-user acquisition rather than retention.
+
+**Recommendations**:
+-  The platform should invest in post-purchase services (e.g., personalized recommendations, membership programs, re-marketing campaigns) to convert new clients into repeat buyers. Gradually promote the porportion of hight value customers.
+-  Even though numbers of important, retaining and potential clients are small, these customers should be prioritized with exclusive perks like early access and memebership discounts of grading system to protect revenue stability.
+-  Re-engagement campaigns (discount coupons, win-back emails) targeting the 86k lost users could yield meaningful recovery at relatively low cost.
+
       - Customer repurchase behavior
         - average repurchase interval
         - repurchase ratio
