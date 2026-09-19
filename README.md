@@ -233,17 +233,193 @@ Here we consider products whose weight >10000g as big-size products; customers' 
 
     
 **c)order time periods**    
+
+**1. Hourly Distribution**
+Sales are lowest in the early morning and peak during daytime working hours.
+
+| Hour Range | Avg. Sales/Hour | Pattern |
+|------------|-----------------|---------|
+| 00:00–06:00 | 187–2,378 | Very low (midnight to early morning) |
+| 07:00–09:00 | 1,223–4,735 | Rapid ramp-up |
+| 10:00–12:00 | 5,947–6,528 | Entering peak |
+| 13:00–17:00 | 6,397–6,628 | **Peak window** (highest volume around 11:00 and 16:00) |
+| 18:00–21:00 | 5,731–6,177 | Sustained high |
+| 22:00–23:00 | 4,094–5,792 | Gradual decline |
+
+**Insight:**
+- Order volume is extremely low between midnight and 6:00 AM, with the trough at 4:00–5:00 AM (fewer than 200 orders).
+- Shopping activity rises steadily from 7:00 AM and stabilizes at a high plateau from 10:00 AM through 9:00 PM.
+- The absolute peak occurs around 11:00 AM (6,528 orders) and 4:00 PM (6,628 orders), suggesting customers browse during mid-morning and afternoon breaks.
+
+**2. Weekday vs Weekend**
+
+| Period | Total Orders | Total Revenue (BRL) | Avg. Orders/Day | Avg. Revenue/Day (BRL) |
+|--------|-------------|---------------------|-----------------|------------------------|
+| Weekday | 75,965 | 10,498,346 | 15,193 | 2,099,669 |
+| Weekend | 22,701 | 3,093,297 | 11,351 | 1,546,649 |
+
+**Insight:**
+- Weekdays generate ~34% more orders per day than weekends (15,193 vs. 11,351).
+- This is consistent with Brazilian e-commerce behavior: customers predominantly shop on weekdays during work or study breaks rather than on weekends.
+- Revenue per day also follows the same pattern, confirming that weekday shopping is the primary revenue engine.
+
+3. Monthly Seasonality
+
+| Month | Orders | Revenue (BRL) |
+|-------|--------|---------------|
+| Jan | 8,009 | 1,070,343 |
+| Feb | 8,427 | 1,091,482 |
+| Mar | 9,829 | 1,357,558 |
+| Apr | 9,325 | 1,356,575 |
+| May | 10,513 | 1,502,589 |
+| Jun | 9,377 | 1,298,163 |
+| Jul | 10,242 | 1,393,539 |
+| Aug | 10,745 | 1,428,658 |
+| Sep* | 4,247 | 624,814 |
+| Oct* | 4,876 | 713,727 |
+| Nov | 7,451 | 1,010,271 |
+| Dec | 5,625 | 743,925 |
+
+*\*Note: September and October figures are partial-month data due to dataset coverage.*
+
+**Insight**:
+
+- Orders grow steadily from January to a peak in May (10,513 orders) and August (10,745 orders), which are the strongest months.
+- November and December show a decline, though this may partially reflect dataset completeness rather than true seasonal weakness.
+- The first half of the year (March–August) consistently outperforms the end of the year, indicating a H1 seasonal peak for the platform.
+
+**Recommendations**:
+
+- **Time push notifications and promotions around 10:00 AM–5:00 PM.** This is the highest-conversion window. Sending discount alerts, email campaigns and app notifications during these hours maximizes click-through and order volume.
+- **Schedule logistics and customer service staffing on weekdays.** Since weekdays carry ~34% more daily orders, warehouse picking, packing and delivery dispatch should be fully staffed Monday–Friday, with lighter weekend operations.
+- **Plan major promotions for March–August.** This H1 window shows consistently high demand and revenue. Align seasonal sales events, inventory restocking and marketing campaigns with this peak period.
+- **Avoid heavy promotion spend in early morning hours (0:00–6:00).** Conversion is at its lowest; shift marketing budget to the daytime peak window instead.
+
     
-    
-- **Cross Analysis**
-  - cross-state shipment & low reviews
-  - delivery delay & categories
-  - RFM & categories  
+**4.Cross Analysis**
+**dashboard link:https://public.tableau.com/views/olist_Ecommerce_cross_analysis/crossanalysis**
+
+**1)cross-state shipment & low reviews**
+
+Products shipped across different states face longer transit routes, higher handling complexity and greater risk of damage or delay. This analysis identifies which product categories suffer the highest low-review rates, and links the pattern to cross-state logistics challenges.
+
+**Product Categories with the Highest Low-Review Ratio**
+
+| Rank | Category (PT) | English Meaning | Low Review Ratio |
+|------|---------------|----------------|-----------------|
+| 1 | portateis_cozinha_e_preparadores_de_alimentos | Portable kitchen & food prep appliances | 57.1% |
+| 2 | artigos_de_festas | Party supplies | 51.7% |
+| 3 | pc_gamer | Gaming PCs | 50.0% |
+| 4 | moveis_colchao_e_estofado | Mattresses & sofas | 50.0% |
+| 5 | seguros_e_servicos | Insurance & services | 50.0% |
+| 6 | telefonia_fixa | Landline phones | 49.3% |
+| 7 | moveis_escritorio | Office furniture | 49.0% |
+| 8 | casa_conforto_2 | Home comfort | 47.1% |
+
+**Product Categories with the Lowest Low-Review Ratio**
+
+| Rank | Category (PT) | English Meaning | Low Review Ratio |
+|------|---------------|----------------|-----------------|
+| 1 | flores | Flowers | 9.5% |
+| 2 | construcao_ferramentas_ferramentas | Construction tools | 10.5% |
+| 3 | livros_interesse_geral | General interest books | 12.4% |
+| 4 | cds_dvds_musicais | CDs & music DVDs | 12.5% |
+| 5 | fashion_roupa_infanto_juvenil | Children's clothing | 12.5% |
+| 6 | fashion_calcados | Shoes | 16.1% |
+| 7 | malas_acessorios | Luggage & accessories | 17.7% |
+| 8 | eletroportateis | Small home appliances | 19.6% |
+
+**Insights**:
+
+- **Bulky, fragile and high-electronics categories dominate the low-review list.** The top categories with the worst review scores — portable kitchen appliances, gaming PCs, mattresses/sofas, office furniture and landline phones — are all physically large, heavy or electronic. These products are highly susceptible to transit damage, require special handling, and are typically shipped across long distances (cross-state), increasing the chance of delayed delivery or product damage.
+- **Small, light, non-fragile categories have the lowest dissatisfaction.** Books, shoes, luggage, flowers and general-interest products have low low-review ratios (9.5%–17.7%). These items are compact, durable and less prone to shipping damage, regardless of distance.
+- **Cross-state shipping amplifies the risk for fragile goods.** When bulky or electronic products travel across state borders, they face multiple handovers, longer transit times and rougher handling. This directly links back to the delivery-delay analysis: remote-area and cross-state orders are already more likely to be late, and when the product itself is fragile, dissatisfaction compounds.
+- **Party supplies and insurance/services are outliers.** Categories like party supplies (51.7%) and insurance/services (50.0%) are not physical shipping-heavy products, yet they show high low-review rates. This suggests dissatisfaction in these categories is driven by product quality, expectation mismatch or service issues rather than logistics alone.
+
+**Recommendations**:
+
+- **Improve packaging for high-risk cross-state categories.** For furniture, mattresses, kitchen appliances and gaming PCs, invest in stronger packaging materials, foam protection and fragile-item labeling to reduce in-transit damage.
+- **Prioritize local fulfillment for bulky items.** Store high-return-bulky products in regional warehouses closer to major customer hubs (SP, RJ, MG) to shorten cross-state shipping distance and lower damage risk.
+- **Set realistic delivery expectations for cross-state orders.** Display longer delivery estimates for inter-state shipments of large/fragile items, so customers are not surprised by extended transit times.
 
 
- 
+**2)delivery delay & categories**
 
-## Key Business Insights
+ ### 🚚 Delivery Delay by Product Category
+As different categories sell different kinds of products, it may influence supplementary services. Here we would like to discover which categories suffer the longest delivery delays, and links the pattern to product type and logistics characteristics.
+
+**Top 10 Categories with the Longest Average Delay**
+
+| Rank | Category (PT) | English Meaning | Avg. Delay (days) |
+|------|---------------|----------------|-------------------|
+| 1 | seguros_e_servicos | Insurance & services | 17.0 |
+| 2 | cds_dvds_musicais | CDs & music DVDs | 16.9 |
+| 3 | la_cuisine | La Cuisine (kitchen brand) | 16.4 |
+| 4 | fashion_roupa_infanto_juvenil | Children's clothing | 15.7 |
+| 5 | artigos_de_festas | Party supplies | 15.1 |
+| 6 | fashion_calcados | Shoes | 14.8 |
+| 7 | telefonia_fixa | Landline phones | 14.7 |
+| 8 | market_place | Marketplace items | 14.6 |
+| 9 | musica | Music | 14.3 |
+| 10 | climatizacao | Air conditioning | 14.2 |
+
+**Top 10 Categories with the Shortest Average Delay**
+
+| Rank | Category (PT) | English Meaning | Avg. Delay (days) |
+|------|---------------|----------------|-------------------|
+| 1 | artes_e_artesanato | Arts & crafts | 6.8 |
+| 2 | moveis_colchao_e_estofado | Mattresses & sofas | 7.2 |
+| 3 | casa_conforto_2 | Home comfort | 8.4 |
+| 4 | portateis_cozinha_e_preparadores_de_alimentos | Kitchen appliances | 9.5 |
+| 5 | pc_gamer | Gaming PCs | 9.6 |
+| 6 | casa_conforto | Home comfort | 9.8 |
+| 7 | alimentos | Food | 9.9 |
+| 8 | audio | Audio equipment | 10.1 |
+| 9 | fashion_underwear_e_moda_praia | Underwear & beachwear | 10.9 |
+| 10 | eletronicos | Electronics | 11.1 |
+
+**Insights**:
+
+- **Wide delay gap across categories.** Average delivery delay ranges from 6.8 days (arts & crafts) to 17.0 days (insurance & services) — a gap of more than 2.5×. This indicates that product category is a significant factor in delivery speed.
+- **Surprisingly, bulky furniture delivers faster than small lightweight goods.** Mattresses & sofas (7.2 days) and other furniture categories rank among the fastest-delivering products. This is counterintuitive but likely because bulky items use dedicated freight carriers with scheduled routes, whereas small items (clothing, media) may be consolidated and wait for batch shipping.
+- **Apparel and media categories are the slowest.** Children's clothing (15.7), shoes (14.8), CDs/DVDs (16.9) and music (14.3) all show long delays. These are typically lightweight items shipped through regular postal/courier channels that handle high volume but slower sorting.
+- **Insurance & services have the longest "delay" (17.0 days).** As a non-physical service category, this may reflect processing time for policy issuance or service activation rather than physical shipping.
+
+**Recommendations**:
+
+- **Investigate logistics for slow apparel and media categories.** Children's clothing, shoes and CDs/DVDs take 15–17 days on average. Review the last-mile partners for these categories and consider switching to faster courier services or local stocking.
+- **Leverage furniture logistics as a model.** Mattresses and sofas deliver in only 7.2 days despite being bulky. Study the dedicated freight model used for furniture and apply similar practices to slow categories.
+- **Set category-specific delivery estimates.** Instead of a generic delivery promise, show customers a more accurate estimate based on product category. This manages expectations and reduces negative reviews caused by over-promising.
+
+
+**3)RFM & categories**
+
+Cross-analyze RFM customer segments with their most frequently purchased product categories. It reveals what each customer group actually buys, so that marketing and product strategies can be tailored to segment-specific preferences.
+
+**Top Category by RFM Segment**
+
+| RFM Segment | Top Product Category | English Meaning | Customer Count |
+|-------------|---------------------|----------------|----------------|
+| Important Client | telefonia | Telecommunications / phones | 24 |
+| Retaining Client | utilidades_domesticas | Household utilities | 12 |
+| Losing Client | informatica_acessorios | Computer accessories | 22 |
+| Potential Client | esporte_lazer | Sports & leisure | 24 |
+| New Client | beleza_saude | Beauty & health | 1,171 |
+| Ordinary Client | cama_mesa_banho | Bed, table & bath (textiles) | 154 |
+| Lost Client | cama_mesa_banho | Bed, table & bath (textiles) | 9,949 |
+
+**Insights & recommendations**:
+
+Different customer groups prefer different product types, confirming that RFM is not just an academic model but aligns with actual shopping behavior.
+- **New customers overwhelmingly enter through Beauty & Health.** The largest new-client segment (1,171 customers) shops mainly in `beleza_saude` (beauty & health). This suggests beauty and health products act as the platform's primary customer-acquisition way — affordable, low-risk entry-level items that attract first-time buyers.
+- **High-value Important Clients prefer telecommunications.** The 24 important clients (high recency, frequency and monetary) buy mainly `telefonia` (phones/electronics). This is a higher-price-point category, consistent with these customers being high spenders who make repeated large purchases. Offer exclusive phone/accessory bundles, extended warranties and early access to new tech products to retain their loyalty.
+- **Sports & Leisure attracts frequent but low-spending Potential Clients.** `esporte_lazer` is the top category for potential clients (high frequency but low monetary value). These customers buy often but spend little per order, suggesting they are deal-sensitive browsers who could be upsold to higher-priced items. Send win-back coupons for new home-textile arrivals or related categories (furniture, decor) to trigger a second purchase.
+- **Bed, Table & Bath (textiles) dominates both Ordinary and Lost clients.** `cama_mesa_banho` is the #1 category for the massive lost-client group (9,949) and the ordinary-client group (154). This mass-market home-textiles category attracts huge volume but low loyalty — most buyers purchase once and never return.
+- **Losing Clients (formerly frequent, now inactive) favored Computer Accessories.** `informatica_acessorios` is the top category for clients who used to buy frequently but have gone quiet. This suggests the electronics/accessories segment may have had better repeat-purchase potential in the past, but those relationships have now cooled.
+- **Cross-sell across segments.** For example, New Clients entering through Beauty & Health could be recommended Household Utilities (the top category for Retaining Clients), which may increase their order frequency and move them up the RFM ladder.
+
+
+## Overall Key Business Insights
 1. Most customers are one-time purchasers; platform repurchase rate is low with high customer churn risk.
 2. Southeast Brazil (São Paulo, Rio de Janeiro) contributes most of platform orders and revenue.
 3. Home, beauty and health-related categories generate the highest revenue.
