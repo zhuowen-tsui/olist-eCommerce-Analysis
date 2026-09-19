@@ -27,7 +27,8 @@ Core tables:
 
 **1) User**
 **dashboard link:https://public.tableau.com/views/olist_Ecommerce_user/user**
-    **a)customer geographic distribution**
+
+**a)customer geographic distribution**
     
 Olist’s customer base shows strong geographic concentration in Southeast Brazil.
 São Paulo (SP) accounts for 41.90% of total customers, followed by Rio de Janeiro (RJ, 12.90%) and Minas Gerais (MG, 11.70%). Those three states occupy 66.5% of all customers of Olist in Brazil.
@@ -47,7 +48,7 @@ Keep retaining customers in developed areas to ensure profits. Focus marketing a
 In the long run, expand development in northern regions to acquire more customers and most importantly, to upgrade business stability.
 
 
-   **b)RFM Customer Segmentation**
+**b)RFM Customer Segmentation**
    
 RFM (Recency, Frequency, Monetary) scores are calculated for each customer.
 A 4-point scoring threshold is used to classify customers into 7 segments:
@@ -87,7 +88,7 @@ A 4-point scoring threshold is used to classify customers into 7 segments:
 -  Re-engagement campaigns (discount coupons, win-back emails) targeting the 86k lost users could yield meaningful recovery at relatively low cost.
 -  
 
-   **c) Customer Repurchase Behavior**
+**c) Customer Repurchase Behavior**
 
 We analyze repurchase behavior from three dimensions, which are 
 - Average time gap between any two consecutive orders of repurchasing customers
@@ -113,7 +114,7 @@ After calculation, we can find that customers apply the nect purchase after 78 d
 **2) Goods** 
 **dashboard link:https://public.tableau.com/views/olist_Ecommerce_goods/goods**
 
-   **a)Pareto analysis by product category**
+**a)Pareto analysis by product category**
 
 This Pareto analysis applies the classic 80/20 principle to product categories. It helps identify which product categories contribute the majority of order volume and revenue, so we can distinguish core high-impact categories from long-tail niche categories.
 
@@ -127,7 +128,8 @@ The descending bar chart shows revenue of each product category, while the curve
 - **Sales follow the Pareto principle closely**. Around 80% of sales volume comes from a small number of top-selling categories, such as `relogios_presentes` (watches/gifts), `esporte_lazer` (sports leisure), `moveis_decoracao` (furniture & decoration). The long tail contains dozens of categories but collectively accounts for only ~20% of total volume.
 -**Prioritize resource allocation for top categories**. Concentrate marketing budget, inventory stocking and logistics optimization on the small set of categories that drive ~80% of volume. These categories are the platform’s core business foundation.
 
-    **b) price tier**
+
+**b) price tier**
 
 As we try to find out products of which price range contribute the most revenue. Products are classified into four tiers by product price:
 | Tier | Price Range |
@@ -144,7 +146,8 @@ From the donut chart, we can see that premium products occupy the largest propor
 - **Tiered promotion design**: Avoid heavy discounting on premium products, which erodes profit margin. Instead, apply coupons and promotions mainly to low and medium-tier items to attract new shoppers, while offering exclusive services (extended warranty, priority delivery) for premium products to retain high-value buyers.
 - **Product enriching within top categories**: For core categories like watches & gifts and sports leisure, maintain a balanced mix: keep low-price SKUs for entry-level customer acquisition, while continuously enriching premium product selections to sustain high-margin revenue streams.
 
-    **c) intra-category price structure**
+
+**c) intra-category price structure**
 
 We consider price structures within top 5 categories to see wether expensive or cheap-priced categories are more likely to gain more revenue.
 
@@ -160,8 +163,8 @@ While premium products dominate overall platform revenue, the weight of each pri
 - **Set differentiated promotion rules per category**. Avoid universal discount strategies across all categories. For categories with high premium revenue share, protect premium profit margin by limiting discounts on high-value products; use promotions only on medium/low tier SKUs to draw traffic.
 - **Combine intra-category price structure with RFM customer segments**. Promote premium goods within categories that naturally perform well in high-price tiers to high-value customers (`Important Client`, `Retaining Client`), as these buyers have higher acceptance of premium products in these categories.
 
-    **d)category volume VS revenue**
 
+**d)category volume VS revenue**
 
 The bubble chart visualizes the relationship between transaction volume and total sales revenue for selected product categories. The size and colour of each bubble further distinguish groups: `top6` (dark purple), `medium` (light purple), and `bottom` (pale pink).
 
@@ -178,32 +181,67 @@ Compared with medium and bottom groups, top6 categories convert sales volume int
 
 **3)Scenario**
 **dashboard link:https://public.tableau.com/views/olist_Ecommerce_scenario/scenario**
-    **a)review scores**
+
+**a)factors influencing review scores**
+
+This section investigates what drives customer satisfaction on the platform, by comparing good reviews (review score >3) against bad reviews (review score <=3) across order value, delivery timeliness and freight cost.
+
+| Dimensions | High Review | Low Review |
+|--------|-------------|------------|
+| Avg. Payment Value (BRL) | 161.66 | 202.98 |
+| Avg. Days Ahead of Delivery Estimate (days) | 13.19 | 8.40 |
+| Avg. Freight Value (BRL) | 19.76 | 20.78 |
+| Freight Ratio (freight / order value) | 44.7% | 29.8% |
+
+**Insights**:
+
+- **Faster delivery is the strongest driver of positive reviews.** Customers with high reviews receive their orders an average of 13.19 days ahead of the estimated delivery date, while low-review customers receive theirs only 8.40 days early. This gap of nearly 5 days shows that earlier-than-expected delivery strongly boosts satisfaction. Conversely, any delay or near-estimate delivery significantly drags down review scores.
+- **Low-review orders have higher order value.** Bad reviews are associated with higher average payment value (BRL 202.98) than good reviews (BRL 161.66). This suggests customers who spend more tend to have higher expectations. When expensive orders are delivered late or poorly handled, the dissatisfaction is amplified, leading to worse ratings.
+- **Freight cost is similar in absolute terms, but matters more for low-value orders.** Average freight value is nearly identical across both groups (~BRL 20). However, because high-review orders have lower payment value, freight accounts for a much larger share (44.7%) of the total order. This means customers who place smaller orders are more sensitive to shipping cost relative to their purchase.
+- **Delivery timeliness matters more than product price for satisfaction.** The largest differentiator between high and low reviews is not the product itself but delivery speed. Even customers who spend less leave good reviews when their order arrives early. This confirms logistics performance is the core lever for improving customer ratings.
+
+**Recommendations**:
+
+- **Prioritize on-time and early delivery.** Since delivery earliness is the strongest predictor of review score, the platform should set internal delivery targets well ahead of the public estimate, especially for high-value orders where customer expectations are higher.
+- **Proactively communicate delays.** For orders at risk of late delivery, send early notifications with updated estimates and compensation (discounts, free shipping) to lower the negative impact on reviews.
+- **Monitor freight ratio on low-value orders.** Since freight consumes 44.7% of low-order-value purchases, consider offering free-shipping thresholds or bundling recommendations to reduce shipping cost sensitivity among smaller buyers.
+- **Combine with geography analysis.** Earlier findings show customers are concentrated in the Southeast. Strengthening local warehousing and last-mile delivery in SP, RJ and MG can directly improve delivery earliness across the majority of orders and lift overall review scores.
+
+
+**b)factors influencing delivery delay**
+
+Order delays may be caused by two key dimensions: product size and geographic remoteness.
+Here we consider products whose weight >10000g as big-size products; customers' address not in SP, RJ, MG, ES as remote regions.
+
+| Factor | On-Time Orders | Delayed Orders |
+|--------|---------------|----------------|
+| Big-size products | 4.5% | 6.2% |
+| Remote-area orders | 30.8% | 35.8% |
+
+**Insights**:
+
+- **Remote areas are the biggest source of delays.** Orders from remote regions account for 35.8% of all delayed orders, compared to 30.8% of on-time orders. This 5-percentage-point gap shows that geographic distance and limited logistics coverage are the primary drivers of late delivery. Customers in remote areas face longer transit routes and fewer distribution centers, making delays far more likely.
+- **Big-size products are slightly more responsible for delay.** Large or heavy items account for 6.2% of delayed orders versus 4.5% of on-time orders. Big-size products require special handling, larger vehicles and more careful packaging, which adds complexity to the delivery chain and increases the chance of scheduling delays.
+- **Remote area impact outweighs product size.** The gap between delayed and on-time orders is much larger for remote areas (+5.0 pp) than for big-size products (+1.7 pp). Geographic remoteness is therefore a stronger predictor of delay than product size.
+
+**Recommendations**:
+
+- **Expand warehouse and distribution center coverage in remote regions.** Since remote-area orders have the highest delay rate, adding local fulfillment centers in under-served states (e.g., northern and northeastern Brazil) would shorten transit distance and reduce late deliveries.
+- **Set realistic delivery estimates for remote and big-size orders.** Instead of promising aggressive delivery times, provide conservative estimates that account for longer transit and handling. This manages customer expectations and reduces negative reviews even when delivery takes longer.
+- **Optimize logistics for big-size products.** Partner with specialized freight carriers for big-size items, and improve packaging and loading processes to reduce handling delays.
+- **Prioritize delay prevention in high-value remote orders.** Combine delivery delay data with order value: high-value orders going to remote areas carry both higher revenue risk and higher expectation. Flag these for extra tracking and proactive customer communication.
+
     
-     - review scores
-     - delivery
-       - whether big size
-       - whether remote area
-     - order time period
-       - daily
-       - weekly  
-       - monthly
+**c)order time periods**    
+    
     
 - **Cross Analysis**
   - cross-state shipment & low reviews
   - delivery delay & categories
   - RFM & categories  
 
-## Dashboard Introduction
-> Note: Due to Tableau Public cross-origin CSP restriction, embedded viz may fail to load on GitHub Pages. Please click the link to open interactive dashboards in new browser tabs.
-1. **Dashboard 1: User Analysis**
-   Customer geographic distribution, RFM segmentation, repurchase rate and order frequency distribution.
-2. **Dashboard 2: Goods Analysis**
-   Sales volume & revenue by product category, top-selling products, product size & weight distribution.
-3. **Dashboard 3: Order & Logistics Analysis**
-   Regional delivery performance, delivery cycle and late delivery rate.
-4. **Dashboard 4: Review & Satisfaction Analysis**
-   Review score distribution, correlation between delivery delay and customer rating.
+
+ 
 
 ## Key Business Insights
 1. Most customers are one-time purchasers; platform repurchase rate is low with high customer churn risk.
