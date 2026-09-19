@@ -21,7 +21,16 @@
         h2 {
             color: #444;
         }
+        .viz-container {
+            width:100%;
+            height:950px;
+        }
     </style>
+    <!-- Tableau Embedding SDK -->
+    <script type="module">
+        import { TableauViz } from 'https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js';
+        window.TableauViz = TableauViz;
+    </script>
 </head>
 <body>
     <h1>Olist Brazilian E-Commerce Visualization Dashboards</h1>
@@ -30,47 +39,49 @@
     <!-- Dashboard 1 -->
     <div class="dashboard-item">
         <h2>Dashboard 1: User</h2>
-        <iframe 
-            src="https://public.tableau.com/views/olist_Ecommerce_user/user?:language=zh-CN&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-            width="1000"
-            height="950"
-            frameborder="0">
-        </iframe>
+        <tableau-viz 
+            id="viz1"
+            class="viz-container"
+            src="https://public.tableau.com/views/olist_Ecommerce_user/user"
+            hide-tabs
+            toolbar="bottom">
+        </tableau-viz>
     </div>
 
     <!-- Dashboard 2 -->
     <div class="dashboard-item">
         <h2>Dashboard 2: Goods</h2>
-        <iframe 
-            src="https://public.tableau.com/views/olist_Ecommerce_goods/goods?:language=zh-CN&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-            width="1000"
-            height="950"
-            frameborder="0">
-        </iframe>
+        <tableau-viz 
+            id="viz2"
+            class="viz-container"
+            src="https://public.tableau.com/views/olist_Ecommerce_goods/goods"
+            hide-tabs
+            toolbar="bottom">
+        </tableau-viz>
     </div>
 
-    <!-- Dashboard 3 -->
+    <!-- Dashboard3 你自行替换src链接 -->
     <div class="dashboard-item">
-        <h2>Dashboard 3: Scenario</h2>
-        <iframe 
-            src="https://public.tableau.com/views/olist_Ecommerce_scenario/scenario?:language=zh-CN&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-            width="1000"
-            height="950"
-            frameborder="0">
-        </iframe>
+        <h2>Dashboard 3: Order & Logistics</h2>
+        <tableau-viz 
+            id="viz3"
+            class="viz-container"
+            src="PASTE_YOUR_LOGISTICS_DASHBOARD_LINK_HERE"
+            hide-tabs
+            toolbar="bottom">
+        </tableau-viz>
     </div>
 
-    <!-- Dashboard 4 -->
+    <!-- Dashboard4 -->
     <div class="dashboard-item">
-        <h2>Dashboard 4: Cross Analysis</h2>
-        <iframe 
-            src="https://public.tableau.com/views/olist_Ecommerce_cross_analysis/crossanalysis?:language=zh-CN&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-            width="1000"
-            height="950"
-            frameborder="0">
-        </iframe>
+        <h2>Dashboard 4: Review & Satisfaction</h2>
+        <tableau-viz 
+            id="viz4"
+            class="viz-container"
+            src="PASTE_YOUR_REVIEW_DASHBOARD_LINK_HERE"
+            hide-tabs
+            toolbar="bottom">
+        </tableau-viz>
     </div>
-
-    <p>Project Description: This project explores Olist Brazilian e-commerce dataset. Data cleaning and SQL exploratory analysis are completed in DataGrip. Four interactive dashboards are built with Tableau Public.</p>
 </body>
 </html>
